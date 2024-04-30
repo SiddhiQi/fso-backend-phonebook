@@ -5,11 +5,6 @@ if (process.argv.length < 3) {
 	process.exit(1)
 }
 
-if (process.argv.length < 3) {
-	console.log("give password as argument")
-	process.exit(1)
-}
-
 const password = process.argv[2]
 
 const url = `mongodb+srv://fullstackDb:${password}@phonebookdb.ivfkf0t.mongodb.net/phonebook`
