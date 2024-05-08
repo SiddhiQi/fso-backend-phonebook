@@ -10,7 +10,7 @@ app.use(express.static("dist"))
 app.use(express.json())
 app.use(cors())
 
-morgan.token("data", (request, res) =>
+morgan.token("data", (request) =>
 	request.method === "POST" || request.method === "PUT" ? JSON.stringify(request.body) : " "
 )
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :data"))
@@ -26,7 +26,6 @@ app.get("/api/persons", (request, response) => {
 })
 
 app.get("/api/persons/:id", (request, response, next) => {
-	const id = Number()
 	Person.findById(request.params.id)
 		.then((person) => {
 			if (person) {
@@ -70,7 +69,7 @@ app.put("/api/persons/:id", (request, response, next) => {
 
 app.delete("/api/persons/:id", (request, response, next) => {
 	Person.findByIdAndDelete(request.params.id)
-		.then((result) => {
+		.then(() => {
 			response.status(204).end()
 		})
 		.catch((error) => next(error))

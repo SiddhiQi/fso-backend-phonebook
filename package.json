@@ -8,7 +8,8 @@
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build:ui": "rm -rf dist && cd ../Full-Stack-open/part\\ -\\ 02/phonebook/ && npm run build && cp -r dist ../../../fso-backend-phonebook/",
-		"deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+		"deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+		"lint": "eslint ."
 	},
 	"author": "Kim Siddiqi",
 	"license": "ISC",
@@ -20,6 +21,9 @@
 		"morgan": "^1.10.0"
 	},
 	"devDependencies": {
+		"@stylistic/eslint-plugin-js": "^1.8.1",
+		"eslint": "^8.56.0",
+		"globals": "^15.1.0",
 		"nodemon": "^3.1.0"
 	}
 }
